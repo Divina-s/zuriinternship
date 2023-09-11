@@ -8,8 +8,8 @@ def my_endpoint(request):
     track = request.GET.get('track')
     current_day = datetime.now().strftime('%A')
     utc_time = datetime.utcnow().isoformat(timespec='seconds') + 'Z'
-    github_file_url = 'https://github.com/username/repo/blob/main/file_name.ext'
-    github_repo_url = 'https://github.com/username/repo'
+    github_file_url = 'https://github.com/Divina-s/zuriinternship/blob/master/stageone/APIproject/APIapp/views.py'
+    github_repo_url = 'https://github.com/Divina-s/zuriinternship'
     status_code = 200
     
     data = {
