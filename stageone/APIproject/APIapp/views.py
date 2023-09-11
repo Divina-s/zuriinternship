@@ -11,7 +11,14 @@ def my_endpoint(request):
     github_file_url = 'https://github.com/Divina-s/zuriinternship/blob/master/stageone/APIproject/APIapp/views.py'
     github_repo_url = 'https://github.com/Divina-s/zuriinternship'
     status_code = 200
-    
+    if None in [slack_name, utc_time, track,github_file_url,github_repo_url,current_day]:
+        return JsonResponse ({'error':'Missing required fields'}, status=400)
+    try:
+        status_code= int(request.GET.get('status_code','200'))
+        if not (100 <= status_code <= 599):
+            raise ValueError()
+    except ValueError:
+        return JsonResponse({'error':'Invalid status code'}, status=400)
     data = {
         "slack_name": slack_name,
         "current_day": current_day,
